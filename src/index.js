@@ -20,6 +20,33 @@ class Plugin {
         .then(this.compileFunctionDeadLetterResources)
 
     };
+
+    // Configuration Schema
+    // Author: Harrison Bowers
+    // Date: Thu 12 Jan 2023
+    // https://www.serverless.com/framework/docs/guides/plugins/custom-configuration
+    this.serverless.configSchemaHandler.defineFunctionProperties("aws", {
+      type: "object",
+      properties: {
+        deadLetter: {
+          type: "object",
+          required: ["sqs"],
+          additionalProperties: true,
+          properties: {
+            sqs: {
+              type: "object",
+              additionalProperties: true,
+              required: ["queueName"],
+              properties: {
+                queueName: { type: "string" },
+                messageRetentionPeriod: { type: "number" },
+                visibilityTimeout: { type: "number" },
+              },
+            },
+          },
+        },
+      },
+    });
   }
 
   resolveTargetArn(functionName, deadLetter, resolveStackResources) {
