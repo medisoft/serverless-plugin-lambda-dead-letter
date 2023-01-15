@@ -17,6 +17,9 @@ class Plugin {
         .then(this.setLambdaDeadLetterConfig),
 
       'deploy:compileEvents': () => BbPromise.bind(this)
+        .then(this.compileFunctionDeadLetterResources),
+
+      'package:compileEvents': () => BbPromise.bind(this)
         .then(this.compileFunctionDeadLetterResources)
 
     };
