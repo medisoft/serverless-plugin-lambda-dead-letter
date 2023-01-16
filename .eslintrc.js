@@ -30,5 +30,6 @@ module.exports = {
     'node/no-extraneous-require': 0,
     'node/no-unsupported-features/es-syntax': ['error', { version: engines.node }],
     'prettierx/options': ['error', prettierrc]
-  }
+  },
+  ignorePatterns: ['**/tests/*.js']
 }
