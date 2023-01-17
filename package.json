@@ -60,7 +60,7 @@
     "husky": "^4.3.8",
     "istanbul": "^0.4.5",
     "lint-staged": "12.3.7",
-    "semantic-release": "^20.0.2"
+    "semantic-release": "^19.0.5"
   },
   "files": [
     "src"
