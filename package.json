@@ -48,7 +48,7 @@
   "devDependencies": {
     "@commitlint/cli": "16.2.1",
     "@commitlint/config-conventional": "16.2.1",
-    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "10.0.1",
     "coveralls": "^2.11.15",
     "eslint": "7.32.0",
@@ -60,7 +60,7 @@
     "husky": "^4.3.8",
     "istanbul": "^0.4.5",
     "lint-staged": "12.3.7",
-    "semantic-release": "18.0.1"
+    "semantic-release": "^20.0.2"
   },
   "files": [
     "src"
