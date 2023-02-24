@@ -1,45 +1,44 @@
-# Serverless Plugin:  Lambda DeadLetterConfig
+Serverless Lambda Dead Letter Queue Plugin
+==========================================
 
-[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
-[![npm version](https://img.shields.io/npm/v/serverless-plugin-lambda-dead-letter.svg)](https://www.npmjs.com/package/serverless-plugin-lambda-dead-letter)
+[![serverless][serverless-badge]][serverless-url]
+[![NPM version][version-badge]][npm-url]
+[![digitalmaas][dmaas-badge]][dmaas-url]
+[![NPM downloads][downloads-badge]][npm-url]
+[![standardjs][standardjs-badge]][standardjs-url]
+
+> A [Serverless][serverless-url] plugin that can assign a dead letter SQS queue to a Lambda function. Works with serverless v1.4+, v2 and v3.
 
 
-[![Build Status](https://travis-ci.org/gmetzker/serverless-plugin-lambda-dead-letter.svg?branch=master)](https://travis-ci.org/gmetzker/serverless-plugin-lambda-dead-letter)
-[![Coverage Status](https://coveralls.io/repos/github/gmetzker/serverless-plugin-lambda-dead-letter/badge.svg?branch=master)](https://coveralls.io/github/gmetzker/serverless-plugin-lambda-dead-letter?branch=master)
-[![dependencies Status](https://img.shields.io/david/gmetzker/serverless-plugin-lambda-dead-letter.svg)](https://david-dm.org/gmetzker/serverless-plugin-lambda-dead-letter)
-[![devDependencies Status](https://img.shields.io/david/dev/gmetzker/serverless-plugin-lambda-dead-letter.svg)](https://david-dm.org/gmetzker/serverless-plugin-lambda-dead-letter?type=dev)
-
-
-
-## What is it?
-
-A [serverless](https://serverless.com/) plugin that can assign a `DeadLetterConfig` to a Lambda function and optionally create a new SQS queue or SNS Topic with a simple syntax.
+What is it?
+-----------
+Assigns a `DeadLetterConfig` to a Lambda function and optionally create a new SQS queue or SNS Topic with a simple syntax.
 
 Failed asynchronous messages for Amazon Lambda can be be sent to an SQS queue or an SNS topic by setting the `DeadLetterConfig`.  Lambda Dead Letter Queues [are documented here](http://docs.aws.amazon.com/lambda/latest/dg/dlq.html).  
 
 At the time this plugin was developed AWS Cloudformation (and serverless) did not support the `DeadLetterConfig` property of the Lambda so we have introduced a plugin that calls `UpdateFunctionConfiguration` on the lambda after serverless deploys the CloudFormation stack.
 
-## Installation
 
-### Requirements
-* nodeJs > `v4.0`
-* serverless > `v1.4`
-
-Install the plugin.
+Installation
+------------
+From your target serverless project, run:
 ```bash
-npm install serverless-plugin-lambda-dead-letter
+npm install @digitalmaas/serverless-plugin-lambda-dead-letter --save-dev
 ```
 
-Install the plugin with npm and reference it in the serverless yaml file [as documented here.](https://serverless.com/framework/docs/providers/aws/guide/plugins/)
 
-```YAML
-# serverless.yml file
+Basic Setup
+-----------
+Add the plugin to your `serverless.yml`:
 
+```yaml
 plugins:
-  - serverless-plugin-lambda-dead-letter
+  - '@digitalmaas/serverless-plugin-lambda-dead-letter'
 ```
 
-## How do I use it?
+
+How do I use it?
+----------------
 
 Dead letter settings are assigned via a new `deadLetter` property nested under a function in a `serverless.yml` file.  
 
@@ -65,7 +64,6 @@ The resulting cloudformation stack will contain an SQS Queue and it's respective
 functions:
   createUser: # Function name
     handler: handler.createUser # Reference to function 'createUser' in code
-
     deadLetter:
       sqs:  createUser-dl-queue  # New Queue with this name
 ```
@@ -77,7 +75,6 @@ functions:
 functions:
   createUser: # Function name
     handler: handler.createUser # Reference to function 'createUser' in code
-
     deadLetter:
       sqs:      # New Queue with these properties
         queueName: createUser-dl-queue
@@ -183,3 +180,24 @@ functions:
     deadLetter:
       targetArn:
 ```
+
+License
+-------
+
+MIT License.
+
+This project has been forked from the original [serverless-plugin-lambda-dead-letter][original-plugin] and published under a different name, as the original has been abandoned.
+
+For the complete information, please refer to the [license](./LICENSE) file.
+
+
+[serverless-badge]: https://img.shields.io/badge/serverless-%E2%9A%A1-yellow.svg?colorB=555555&style=flat-square
+[version-badge]: https://img.shields.io/npm/v/@digitalmaas/serverless-plugin-lambda-dead-letter.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dm/@digitalmaas/serverless-plugin-lambda-dead-letter.svg?style=flat-square
+[standardjs-badge]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square
+[dmaas-badge]: https://img.shields.io/badge/sponsored%20by-digitalmaas-green.svg?colorB=00CD98&style=flat-square
+[serverless-url]: http://www.serverless.com
+[npm-url]: https://www.npmjs.com/package/@digitalmaas/serverless-plugin-lambda-dead-letter
+[dmaas-url]: https://digitalmaas.com/
+[standardjs-url]: https://standardjs.com/
+[original-plugin]: https://github.com/gmetzker/serverless-plugin-lambda-dead-letter
