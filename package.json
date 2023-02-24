@@ -13,6 +13,10 @@
     "node": ">=4.0"
   },
   "author": "Gary Metzker",
+  "contributors": [
+    "Harrison Bowers <Hbowers@users.noreply.github.com>",
+    "Ricardo Nolde <nolde@users.noreply.github.com>"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter#readme",
   "repository": {
