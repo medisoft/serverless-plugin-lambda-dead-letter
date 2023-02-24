@@ -1,3 +1,11 @@
+## 1.0.0 (2023-02-24)
+
+
+### Bug Fixes
+
+* Add configuration schema to plugin ([d51ac0c](https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter/commit/d51ac0c84dff98930050b74c1558eb75633d6770))
+* updated lifecycle hook for v3 required changes ([59618f5](https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter/commit/59618f52b317e49570c543d6fc91cada5f76681d))
+
 # 1.2.1 (2017-01-31)
 
 ## Bug Fixes
