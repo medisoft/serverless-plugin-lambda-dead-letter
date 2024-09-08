@@ -1,7 +1,7 @@
 {
-  "name": "@digitalmaas/serverless-plugin-lambda-dead-letter",
-  "version": "0.0.0-semantic",
-  "description": "serverless plugin that can configure a lambda with a dead letter queue or topic",
+  "name": "@osoverflow/serverless-plugin-lambda-dead-letter",
+  "version": "1.0.1",
+  "description": "serverless plugin that can configure a lambda with a dead letter queue or topic. From the repo Kayyow/serverless-plugin-lambda-dead-letter and https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter#readme",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src --ext .js",
@@ -18,13 +18,13 @@
     "Ricardo Nolde <nolde@users.noreply.github.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter#readme",
+  "homepage": "https://github.com/medisoft/serverless-plugin-lambda-dead-letter#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter"
+    "url": "https://github.com/medisoft/serverless-plugin-lambda-dead-letter"
   },
   "bugs": {
-    "url": "https://github.com/digitalmaas/serverless-plugin-lambda-dead-letter/issues"
+    "url": "https://github.com/medisoft/serverless-plugin-lambda-dead-letter/issues"
   },
   "keywords": [
     "serverless",
